@@ -8,13 +8,12 @@ function displayTime() {
     let mesAtual = allTimes.toLocaleDateString('pt-BR', {month: 'long'})
     let anoAtual = allTimes.getFullYear()
     if (mAtual < 10) {
-         mAtual="0"+mAtual;
-    } if (sAtual < 10) {
-         sAtual="0"+mAtual   
-    } else {
-        document.querySelector('.clock').innerHTML = `${hAtual}:${mAtual}:${sAtual}`
+         mAtual = "0" + mAtual;
+    }if (sAtual < 10) {
+         sAtual = "0" + sAtual;   
     }
-    
+
+        document.querySelector('.clock').innerHTML = `${hAtual}:${mAtual}:${sAtual}`
         document.querySelector(".date").innerHTML = `${diasemAtual}, ${diaAtual} de ${mesAtual} de ${anoAtual}`
 
     setTimeout(function () {
