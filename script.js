@@ -38,14 +38,14 @@ const renderCalendar = () => {
         
     const firstDayIndex = date.getDay()
 
-    const lastDayIndex = new Date(
-        date.getFullYear(),
-        date.getMonth() + 1, 0).getDay();
-
-    let nextDays = 7 - lastDayIndex - 1;
-    if(nextDays == 0){nextDays = 7}
-        console.log(nextDays)
-    
+   function diasdmes(){
+       numAno = date.getFullYear(),
+       numMes = date.getMonth()+1,
+       numDias = new Date(numAno, numMes, 0).getDate();
+       return numDias;
+   }
+        let solucao = 42 - firstDayIndex - diasdmes()
+        
     const months = [
         "Janeiro",
         "Fevereiro",
@@ -83,21 +83,19 @@ const renderCalendar = () => {
             
         }
     }
-    for (let j = 1; j <= nextDays; j++) {
+    for (let j = 1; j <= solucao; j++) {
         days += `<div class="next-date">${j}</div>`;
     }   
     monthDays.innerHTML = days;
 };
 
-/*
-document.querySelector(".prev").addEventListener('click', () => {
+document.querySelector("#next").addEventListener('click', () => {
     date.setMonth(date.getMonth() - 1);
     renderCalendar()
 });
 
-document.querySelector(".next").addEventListener('click', () => {
+document.querySelector("#prev").addEventListener('click', () => {
     date.setMonth(date.getMonth() + 1);
     renderCalendar()
 });
-*/
 renderCalendar()
