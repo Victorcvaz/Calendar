@@ -10,13 +10,23 @@
     <title>Calendário</title>
 </head>
 
-<body onload="displayTime()">
+<body onload="displayTime()"> 
+    <div class="container">
+
     <header class="h-header">
+        <div class="menu-hamburguer-calender">
+            Calendário
+        </div>
+        <div class="menu-hamburguer-agenda">
+            Agenda
+        </div>
         <div class="date-clock">
             <h1 class="clock">Relógio</h1>
             <p class="date">Dia-data</p>
+        </div>   
     </header>
-    <main class="container">
+    <aside class="a-aside">
+        
         <div class="calender">
             <div class="month">
                 <i class="fas fa-angle-left" id="next"></i>
@@ -35,13 +45,39 @@
                 <div>Sex</div>
                 <div>Sab</div>
             </div>
-            <div class="days">
-                
+            <div class="days"></div>
+    </aside>
+    <section class="task-section">
+        <div class="add-task">
+            <input type="text" id="n-task" placeholder="Adicione uma tarefa">
+            <button id="btnaddtask">
+                <i class="fa fa-plus"></i>
+            </button>
         </div>
-    </main>
-
-
+        <ul class="tasks">
+        </ul>
+    </section>
+        <div class="janelaEdit">
+            <button id="janelaEditbtnclose">
+                <i class="fa fa-remove fa-2x"></i>
+            </button>
+            <h2 id="idtask-edit">#1021</h2>
+            <hr>
+            <form>
+                <div class="frm-line">
+                 <label for="itasknameEdit">Nome</label>
+                 <input type="text" id="itasknameEdit">
+                </div>
+                <div class="frm-line">
+                    <button id="btnAttTask">Salve</button>
+                </div>
+            </form>
+        </div>
+        <div class="janelaEdicaoFundo"></div>
+    
+    </div>
     <script src="script.js"></script>
+    <script src="tarefas.js"></script>
 </body>
 
 </html>

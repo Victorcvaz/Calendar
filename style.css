@@ -13,24 +13,124 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 35%;
 }
 
 .container {
     width: 100%;
     height: 100vh;
+}
+
+.h-header {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.date-clock {
+    width: 100%;
+    height: 85%;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    border-radius: 2rem;
+    box-shadow: .1rem .1rem 1rem white;
+    margin-bottom: .8rem;
+    margin-top: .8rem;
+}
+
+.date-clock h1 {
+    margin-left: 2rem;
+    font-weight: bolder;
+    color: #fff;
+    font-family: var(--font-secondary);
+    font-size: 4rem;
+}
+
+.date-clock p {
+    margin-left: 2rem;
+    font-weight: bold;
+    color: rgb(101, 90, 202);
+    font-size: 1.4rem;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+}
+
+.a-aside {
+    width: 100%;
+    height: 90vh;
     background-color: #12121f;
     color: #eee;
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+.menu-hamburguer-calender{
+    width: 5rem;
+    height: 2rem;
+    position: absolute;
+    top: 5.5%;
+    right: 28%;
+    cursor: pointer;
+    color: rgb(101, 90, 202);
+    background: rgba(0,0,0, 3);
+    padding: 1.1rem 5rem;
+    font-size: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: color 1s;
+}
+.menu-hamburguer-calender:hover{
+    color: #fff;
+}
+
+
+.menu-hamburguer-agenda{
+    width: 5rem;
+    height: 2rem;
+    position: absolute;
+    background-color: rgb(38, 255, 0);
+    top: 2%;
+    right: 28%;
+    cursor: pointer;
+    color: rgb(101, 90, 202);
+    background: rgba(0,0,0, 3);
+    padding: 1.1rem 5rem;
+    font-size: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: color 1s;
+}
+
+.menu-hamburguer-agenda:hover{
+    color: #fff;
 }
 
 .calender {
     width: 45rem;
     height: 56rem;
     background-color: #222227;
-    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+    box-shadow: 0.1rem 0.1rem .5rem rgb(88, 111, 237);
+    opacity: 0;
+    margin-top: 1%;
 }
+
+.calender.show-menu-calender{
+    opacity: 1;
+}
+
 
 .month {
     width: 100%;
@@ -59,7 +159,7 @@ html {
 }
 
 .month p {
-    font-size: 1.6rem;
+    font-size: 5rem;
     font-family: var(--font-primary);
 }
 
@@ -78,8 +178,8 @@ html {
 }
 
 .weekdays div {
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 1.8rem;
+    font-weight: bolder;
     letter-spacing: 0.1rem;
     width: calc(44.2rem/7);
     align-items: center;
@@ -118,46 +218,270 @@ html {
     opacity: 0.5;
 }
 
+#next,
+#prev{
+    z-index: 99;
+    cursor: pointer;
+}
+
 .today {
     background-color: rgb(101, 90, 202);
     ;
 }
 
-
-
-.h-header {
+.task-section{
     width: 100%;
-    height: 15%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.date-clock {
-    width: 20%;
-    height: 7rem;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 2rem;
-    box-shadow: .1rem .1rem 1rem white;
-    margin-bottom: .8rem;
-    margin-top: .8rem;
-}
-
-.date-clock h1 {
-    margin-left: 2rem;
-    font-weight: bolder;
+    max-width: 450px;
+    margin: 4rem;
+    background: rgba(0, 0, 0, 0.9);
     color: #fff;
-    font-family: var(--font-secondary);
-    font-size: 3rem;
+    padding: 5.5rem;
+    border-radius: 12px; 
+    position: relative;
+    top: -90%;
+    box-shadow: .1rem .1rem 1rem gray;
+    opacity: 0;
 }
 
-.date-clock p {
-    margin-left: 2rem;
-    font-weight: bold;
-    color: rgb(101, 90, 202);
-    font-size: 1.4rem;
+.task-section.show-menu-agenda{
+    opacity: 1;
+}
+
+.add-task{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3.5rem;
+}
+
+.add-task input{
+    width: 35rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    border: 1px solid #191818;
+    background: #191818;
+    color: #fff;
+}
+
+.add-task button{
+    width: 4.5rem;
+    border-radius: 8px;
+    border: 1px solid #191818;
+    background: #191818;
+    font-size: 2rem;
+    color: #fff;
+    margin-left: -1.5rem;
+    cursor: pointer;
+}
+
+.add-task button:hover{
+    background: #1f1e1e;
+    
+}
+
+.tasks{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tasks li{
+    padding: 2rem;
+    background: #191818;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+
+.btn-action{
+    border-radius: 2px;
+    border: 1px solid #191818;
+    width: 3.8rem;
+    height: 3.8rem;
+    border-radius: 8px;
+    margin-right: .8rem;
+    cursor: pointer;
+    background: #2b2a2a;
+    color: #fff;
+}
+
+.text-task{
+   overflow: hidden;
+   text-overflow: ellipsis;
+   width: 29rem;
+   white-space: nowrap;
+}
+
+.btn-action:hover{
+    background: #3c3a3a;
+}
+
+.janelaEdit{
+    position: relative;
+    top: -125%;
+    right: -50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    background: #191818;
+    border: 1px solid #2f2e2e;
+    width: 65%;
+    max-width: 415px;
+    border-radius: 8px;
+    z-index: 200;
+    display: none;
+}
+
+.janelaEdit.abrir{
+    display: block !important;
+}
+
+.janelaEdicaoFundo{
+    position: fixed;
+    top: 0;
+    background-color: #000;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.9;
+    z-index: 150;
+    display: none;
+}
+
+.janelaEdicaoFundo.abrir{
+    display: block !important;
+}
+
+
+
+#janelaEditbtnclose{
+    position: absolute;
+    right: 2.4rem;
+    top: 1rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 1px solid #2d2c2c;
+    background: #2d2c2c;
+    color: #fff;
+    cursor: pointer;
+}
+
+#janelaEditbtnclose:hover{
+    background: #3c3a3a;
+}
+
+
+form{
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.frm-line{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.frm-line label{
+    margin-bottom: 0.7rem;
+    color: white;
+    font-size: 2rem;
+    margin-left: 1rem;
+    
+}
+
+.frm-line input{
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #191818;
+    font-size: 2rem;
+    background: #2d2c2c;
+    color: #fff;
+}
+
+.frm-line button{
+    background: #2d2c2c;
+    border: 1px solid #191818;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    color: #CCC;
+    cursor: pointer;
+    height: 5rem;
+    font-size: 2rem;
+}
+
+.frm-line button:hover{
+    background: #3c3a3a;
+}
+
+
+@media (max-width: 449px){
+    html{
+        font-size: 32%
+    }
+    .date-clock {
+        width: 50%;
+    }
+}
+
+@media (min-width: 450px){
+    html{
+        font-size: 45%;
+    }
+    .date-clock {
+        width: 50%;
+    }
+}
+
+@media (min-width: 600px){
+    html{
+        font-size: 50%;
+    }
+    .date-clock {
+        width: 48%;
+    }
+}
+
+@media (min-width: 900px){
+    html{
+        font-size: 55%;
+    }
+    .date-clock{
+        width: 34%;
+    }
+    .menu-hamburguer-calender{
+        position: absolute;
+        top: 5.5%;
+        right: 38%;
+    }
+    .menu-hamburguer-agenda{
+        position: absolute;
+        top: 1.5%;
+        right: 38%;
+    }
+}
+
+@media (min-width: 1200px){
+    html{
+        font-size: 60%;
+    }
+    .date-clock {
+        width: 32%;
+    }
+    
+    .menu-hamburguer-calender{
+        position: absolute;
+        top: 5.5%;
+        right: 37%;
+    }
+    .menu-hamburguer-agenda{
+        position: absolute;
+        top: 1.7%;
+        right: 37%;
+    }
 }

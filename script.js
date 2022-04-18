@@ -1,3 +1,9 @@
+document.querySelector(".menu-hamburguer-calender").addEventListener("click", () => document.querySelector(".calender").classList.toggle("show-menu-calender"));
+
+document.querySelector(".menu-hamburguer-agenda").addEventListener("click", () => document.querySelector(".task-section").classList.toggle("show-menu-agenda"));
+// tratamento de evento e função para visualizar agenda/calenario
+
+// relogio e data no header
 function displayTime() {
     let allTimes = new Date();
     let hAtual = allTimes.getHours()
@@ -21,10 +27,10 @@ function displayTime() {
 
 const date = new Date();
 
+// função do calendario
 const renderCalendar = () => {
 
     date.setDate(1);
-
 
     const monthDays = document.querySelector(".days");
 
@@ -37,14 +43,8 @@ const renderCalendar = () => {
         date.getMonth(), 0).getDate();
         
     const firstDayIndex = date.getDay()
-
-   function diasdmes(){
-       numAno = date.getFullYear(),
-       numMes = date.getMonth()+1,
-       numDias = new Date(numAno, numMes, 0).getDate();
-       return numDias;
-   }
-        let solucao = 42 - firstDayIndex - diasdmes()
+        
+    const nextPrevDay = 42 - firstDayIndex - lastDay
         
     const months = [
         "Janeiro",
@@ -83,10 +83,12 @@ const renderCalendar = () => {
             
         }
     }
-    for (let j = 1; j <= solucao; j++) {
+    for (let j = 1; j <= nextPrevDay; j++) {
         days += `<div class="next-date">${j}</div>`;
     }   
     monthDays.innerHTML = days;
+
+   
 };
 
 document.querySelector("#next").addEventListener('click', () => {
@@ -99,3 +101,4 @@ document.querySelector("#prev").addEventListener('click', () => {
     renderCalendar()
 });
 renderCalendar()
+
