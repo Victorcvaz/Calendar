@@ -6,57 +6,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Calendário</title>
 </head>
 
-<body onload="displayTime()"> 
+<body onload="displayTime()">
     <div class="container">
 
-    <header class="h-header">
-        <div class="menu-hamburguer-calender">
-            Calendário
-        </div>
-        <div class="menu-hamburguer-agenda">
-            Agenda
-        </div>
-        <div class="date-clock">
-            <h1 class="clock">Relógio</h1>
-            <p class="date">Dia-data</p>
-        </div>   
-    </header>
-    <aside class="a-aside">
-        
-        <div class="calender">
-            <div class="month">
-                <i class="fas fa-angle-left" id="next"></i>
-                <div class="date">
-                    <h1></h1>
-                    <p></p>
+        <header class="h-header">
+            <div class="menu-hamburguer-calender">
+                Calendário
+            </div>
+            <div class="menu-hamburguer-agenda">
+                Agenda
+            </div>
+            <div class="date-clock">
+                <h1 class="clock">Relógio</h1>
+                <p class="date">Dia-data</p>
+            </div>
+        </header>
+        <aside class="a-aside">
+
+            <div class="calender">
+                <div class="month">
+                    <i class="fas fa-angle-left" id="next"></i>
+                    <div class="date">
+                        <h1></h1>
+                        <p></p>
+                    </div>
+                    <i class="fas fa-angle-right" id="prev"></i>
                 </div>
-                <i class="fas fa-angle-right" id="prev"></i>
+                <div class="weekdays">
+                    <div>Dom</div>
+                    <div>Seg</div>
+                    <div>Ter</div>
+                    <div>Qua</div>
+                    <div>Qui</div>
+                    <div>Sex</div>
+                    <div>Sab</div>
+                </div>
+                <div class="days"></div>
+        </aside>
+        <section class="task-section">
+            <div class="add-task">
+                <input type="text" id="n-task" placeholder="Adicione uma tarefa">
+                <button id="btnaddtask">
+                    <i class="fa fa-plus"></i>
+                </button>
             </div>
-            <div class="weekdays">
-                <div>Dom</div>
-                <div>Seg</div>
-                <div>Ter</div>
-                <div>Qua</div>
-                <div>Qui</div>
-                <div>Sex</div>
-                <div>Sab</div>
-            </div>
-            <div class="days"></div>
-    </aside>
-    <section class="task-section">
-        <div class="add-task">
-            <input type="text" id="n-task" placeholder="Adicione uma tarefa">
-            <button id="btnaddtask">
-                <i class="fa fa-plus"></i>
-            </button>
-        </div>
-        <ul class="tasks">
-        </ul>
-    </section>
+            <ul class="tasks">
+            </ul>
+        </section>
         <div class="janelaEdit">
             <button id="janelaEditbtnclose">
                 <i class="fa fa-remove fa-2x"></i>
@@ -65,8 +67,8 @@
             <hr>
             <form>
                 <div class="frm-line">
-                 <label for="itasknameEdit">Nome</label>
-                 <input type="text" id="itasknameEdit">
+                    <label for="itasknameEdit">Nome</label>
+                    <input type="text" id="itasknameEdit">
                 </div>
                 <div class="frm-line">
                     <button id="btnAttTask">Salve</button>
@@ -74,7 +76,7 @@
             </form>
         </div>
         <div class="janelaEdicaoFundo"></div>
-    
+
     </div>
     <script src="script.js"></script>
     <script src="tarefas.js"></script>

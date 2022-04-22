@@ -1,7 +1,23 @@
-document.querySelector(".menu-hamburguer-calender").addEventListener("click", () => document.querySelector(".calender").classList.toggle("show-menu-calender"));
+document.querySelector(".menu-hamburguer-calender").addEventListener("click", () => {
+    if(document.querySelector('.task-section.show-menu-agenda')){
+        document.querySelector(".task-section").classList.toggle("show-menu-agenda")
+        document.querySelector(".calender").classList.toggle("show-menu-calender")
+    }else{
+        document.querySelector(".calender").classList.toggle("show-menu-calender")
+    }
+    
+});
 
-document.querySelector(".menu-hamburguer-agenda").addEventListener("click", () => document.querySelector(".task-section").classList.toggle("show-menu-agenda"));
+document.querySelector(".menu-hamburguer-agenda").addEventListener("click", () => {
+    if(document.querySelector('.calender.show-menu-calender')){
+        document.querySelector(".calender").classList.toggle("show-menu-calender")
+        document.querySelector(".task-section").classList.toggle("show-menu-agenda")
+    }else{
+        document.querySelector(".task-section").classList.toggle("show-menu-agenda")
+    }
+});
 // tratamento de evento e função para visualizar agenda/calenario
+
 
 // relogio e data no header
 function displayTime() {
@@ -35,17 +51,17 @@ const renderCalendar = () => {
     const monthDays = document.querySelector(".days");
 
     const lastDay = new Date(
-        date.getFullYear(), 
+        date.getFullYear(),
         date.getMonth() + 1, 0).getDate();
 
     const prevLastDay = new Date(
-        date.getFullYear(), 
+        date.getFullYear(),
         date.getMonth(), 0).getDate();
-        
+
     const firstDayIndex = date.getDay()
-        
+
     const nextPrevDay = 42 - firstDayIndex - lastDay
-        
+
     const months = [
         "Janeiro",
         "Fevereiro",
@@ -69,26 +85,26 @@ const renderCalendar = () => {
 
     for (let x = firstDayIndex; x > 0; x--) {
         days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
-        
+
     }
     for (let i = 1; i <= lastDay; i++) {
-        if (i 
-        === new Date().getDate() 
-        && date.getMonth() 
-        === new Date().getMonth() ){
+        if (i
+            === new Date().getDate()
+            && date.getMonth()
+            === new Date().getMonth()) {
             days += `<div class="today">${i}</div>`;
-            
+
         } else {
             days += `<div>${i}</div>`;
-            
+
         }
     }
     for (let j = 1; j <= nextPrevDay; j++) {
         days += `<div class="next-date">${j}</div>`;
-    }   
+    }
     monthDays.innerHTML = days;
 
-   
+
 };
 
 document.querySelector("#next").addEventListener('click', () => {
