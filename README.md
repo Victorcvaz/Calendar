@@ -1,6 +1,6 @@
 # Calendario
 
-Portfólio desenvolvimento web
+desenvolvimento web
 
 ## Tarefas
 
